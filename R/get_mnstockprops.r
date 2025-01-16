@@ -117,8 +117,8 @@ get_mnstockprops <- function(x, props.ind=FALSE) {
          "latitude (column 2)."))
   if (!all(x[,3] %in% c("summer", "all")))
     stop("Season must be 'all' or 'summer'.")
-  if (!all(x[,4] > 0 & x[,4] <= 1))
-    stop("Proration values must be positive (nonzero) number less or equal to one.")
+  if (!all(x[,4] >= 0 & x[,4] <= 1))
+    stop("Proration values must be a number between zero and one.")
 
   # edit data frame
   names(x) <- c("minlat", "maxlat", "ssn", "sipv")
@@ -163,6 +163,10 @@ get_mnstockprops <- function(x, props.ind=FALSE) {
     propstats.each <- cbind(propstats.each[,1:2], propstats.each$prop)
     names(propstats.each) <- c("id","stock","sd","q95l","q80l","q80u","q95u")
     propstats.each <- merge(propx.each, propstats.each)
+    # round to appropriate precision for smaller proportions
+    propstats.each[,c("prop","sd","q95l","q80l","q80u","q95u")] <-
+      round(propstats.each[,c("prop","sd","q95l","q80l","q80u","q95u")],4)
+    # return result
     return(propstats.each[,c(names(propx.each),"sd","q95l","q80l","q80u","q95u")])
   } else {
     # objective is to return four-row df with stockwise stats for all whales combined,
@@ -182,6 +186,10 @@ get_mnstockprops <- function(x, props.ind=FALSE) {
     propstats.sum <- cbind(propstats.sum[,1,drop=FALSE], propstats.sum$propsum.std)
     names(propstats.sum) <- c("stock","sd","q95l","q80l","q80u","q95u")
     propstats.sum <- merge(propx.sum[,c(1,4)], propstats.sum)
+    # round to appropriate precision for smaller proportions
+    propstats.sum[,c("prop","sd","q95l","q80l","q80u","q95u")] <-
+      round(propstats.sum[,c("prop","sd","q95l","q80l","q80u","q95u")],4)
+    # return result
     return(propstats.sum)
   }
 }
