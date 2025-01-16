@@ -1,0 +1,18 @@
+Package: AssignMnStockProportions
+Version: 0.0.0.9000
+Title: Assign Stock Membership Probabilities for USWC Humpbacks
+Author: K. Alexandra Curtis [aut, cre]
+Maintainer: K. Alexandra Curtis <alex.curtis@noaa.gov>
+Description: A tool that provides stock assignment probabilities for humpback 
+   whales off the U.S. West Coast, individually or as an aggregate, given individual 
+   ranges of latitudes and seasons of (potential) occurrence, and serious injury 
+   proration values. Stock probabilities are based on photo-identification data 
+   and are taken from Curtis et al. (in prep), and weighted averages across latitude 
+   bins are calculated using humpback densities from Becker et al. (2020) and 
+   Wright et al. (2021). 
+License: Apache License (>= 2) + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: R (>= 4.4.0)
+Imports: 
