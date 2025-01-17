@@ -8,9 +8,9 @@
 #' @param x Data frame containing four columns and one row per whale:
 #' minimum and maximum latitudes of occurrence (two numeric columns), season of
 #' occurrence (character, \code{"summer"} (Jun-Oct) or \code{"all"}) (all months),
-#' and a proration value from serious injury determination (positive, nonzero
-#' number less than or equal to one; set to all ones if not relevant). The
-#' function rounds all latitudes to 0.1 degrees precision.
+#' and a proration value from serious injury determination (number between zero
+#' and one; set to all ones if not relevant). Note that the function rounds all
+#' latitudes to 0.1 degrees precision.
 #' @param props.ind Logical value indicating whether to return probabilities for
 #' for individual whales or for the total number of whales (must be \code{FALSE}
 #' to get appropriate uncertainties for the total). Defaults to \code{FALSE}.
