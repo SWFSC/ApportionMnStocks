@@ -1,6 +1,6 @@
 # AssignMnStockProportions
 Provides stock membership probabilities for U.S. West Coast humpback whales based 
-on a latitude (range) and season (summer or year-round). 
+on a latitude (range) and season (summer or year-round), using data from 2019 to 2024.
 
 ## Disclaimer
 
