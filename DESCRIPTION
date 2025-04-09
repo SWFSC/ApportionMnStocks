@@ -1,5 +1,6 @@
 Package: AssignMnStockProportions
-Version: 0.0.0.9000
+Version: 1.0.0
+Date: 2025-04-09
 Title: Assign Stock Membership Probabilities for USWC Humpbacks
 Author: K. Alexandra Curtis [aut, cre]
 Maintainer: K. Alexandra Curtis <alex.curtis@noaa.gov>
