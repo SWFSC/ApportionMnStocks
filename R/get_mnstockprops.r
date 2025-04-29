@@ -25,19 +25,20 @@
 #' probabilities across whales cannot be calculated post hoc from statistics for
 #' individuals.
 #'
-#' Stocks accounted for include the following four (with abbreviations used in
+#' Estimated proportions are provided for four stocks (with abbreviations used in
 #' the returned data frame):
-#' Central America / Southern Mexico - California-Oregon-Washington (CASM),
-#' Mainland Mexico - California-Oregon-Washington (MX-COW), Hawai'i (HI), and
-#' Mexico-North Pacific (MX-NP).
+#'   * Central America / Southern Mexico - California-Oregon-Washington (CASM)
+#'   * Mainland Mexico - California-Oregon-Washington (MX-COW)
+#'   * Hawai'i (HI)
+#'   * Mexico-North Pacific (MX-NP)
 #'
 #' The stock membership probabilities returned are based on stock proportions by
 #' latitude, estimated for discrete latitude bins following the methods reported
-#' in Curtis et al. (in prep). Probabilities across multiple bins are calculated
+#' in Curtis et al. (2025). Probabilities across multiple bins are calculated
 #' as weighted averages using relative densities along the U.S. West Coast from
 #' Becker et al. (2020) and in the Salish Sea from Wright et al. (2021). The
 #' proportions and uncertainties applied here currently match those reported
-#' in Curtis et al. (in prep).
+#' in Curtis et al. (2025).
 #'
 #' Minimum and maximum latitudes accepted by \code{get_mnstockprops} are 30.5 and
 #' 49, which map to the southernmost and northernmost extents of the U.S. West
@@ -58,12 +59,13 @@
 #'
 #' Becker, E.A., Forney, K.A., Miller, D.L., Fiedler, P.C., Barlow, J., Moore,
 #' J.E.. 2020. Habitat-based density estimates for cetaceans in the California
-#' Current Ecosystem based on 1991-2018 survey data (NOAA Technical Memorandum
-#' NMFS-SWFSC-638).
+#' Current Ecosystem based on 1991-2018 survey data. NOAA Technical Memorandum
+#' NMFS-SWFSC-638.
 #'
-#' Curtis, K. A., Calambokidis, J., and others (in prep) A method for estimating
-#' mixed stock proportions from photo-identification data: stock proportions by
-#' latitude of humpback whale stocks off the U.S. West Coast.
+#' Curtis, K. A., Calambokidis, J., and others (2025) Harnessing the power of 
+#' photo-ID data for apportionment to migratory whale herds: U.S. West Coast 
+#' humpback whale stock proportions by latitude for the period 2019-2024. NOAA 
+#' Technical Memorandum NMFS-SWFSC-XXX.
 #'
 #' Wright, B. M., Nichol, L. M., Doniol-Valcroze, T. 2021. Spatial density models
 #' of cetaceans in the Canadian Pacific estimated from 2018 ship-based surveys.

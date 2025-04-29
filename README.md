@@ -1,6 +1,32 @@
-# AssignMnStockProportions
-Provides stock membership probabilities for U.S. West Coast humpback whales based 
-on a latitude (range) and season (summer or year-round), using data from 2019 to 2024.
+# ApportionMnStocks
+ApportionMnStocks is an R package that allows users to obtain estimates of 
+humpback whale stock membership probabilities along the U.S. West Coast, based 
+on a latitude (range) and season (summer or year-round), for humpback whale stocks
+as designated under the U.S. Marine Mammal Protection Act, and using 
+photo-identification data from 2019 to 2024.
+
+## Installation
+
+# install.packages("devtools")
+devtools::install_github("kacurtis/ApportionMnStocks")
+
+## Citation
+
+Please cite two references when using this package:
+
+(1) The primary publication, which can be obtained [here](https://xxxx):
+
+Curtis, K.A., Calambokidis, J., Audley, K., Becker, E.A., Bejder, L., Black, N., Carretta, J.V., Cabanilles, P., Castaneda, M.G., Cheeseman, T., Currie, J.J., de Luna, E., De Weerdt, J., Doe, N., Doniol-Valcroze, T., Flynn, K., Forney, K.A., Frisch-Jordán, A., Fry, S., Gabriele, C., Gisborne, B., Huggins, J.L., Lyman, E., Martínez-Loustalot, P., McMillan, C.J., Pack, A.A., Quintana-Rizzo, E., Ransome, N., Shaw, T.J.H., Szabo, A., Torres, L., Urbán R., J., van Aswegen, M., Wray, J., Moore, J. 2025. Harnessing the power of photo-ID data for apportionment to migratory whale herds: U.S. West Coast humpback whale stock composition by latitude for the period 2019-2024, U.S. Department of Commerce, NOAA Technical Memorandum NMFS-SWFSC-XXX.
+
+(2) The package itself, subbing in the version you are using:
+
+Curtis, K.A. 2025. ApportionMnStocks. R package version 1.0.0. 
+https://github.com/kacurtis/ApportionMnStocks
+
+Code used in estimating stock proportions and for summarizing relative humpback 
+whale abundance by latitude along the U.S. West Coast and for the Salish Sea
+is [here](https://github.com/kacurtis/MnPhotoIDStockProportions2025) and 
+[here](https://github.com/kacurtis/ApportionMnStocks/blob/main/inst/extdata/summarize.density.r).
 
 ## Disclaimer
 
