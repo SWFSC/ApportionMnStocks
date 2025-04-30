@@ -14,16 +14,13 @@ devtools::install_github("kacurtis/ApportionMnStocks")
 
 ## Citation
 
-Please cite two references when using this package:
-
-(1) The primary publication, which can be obtained [here](https://xxxx):
+Please cite the primary citation (available [here](https://xxxx)) when using this package:
 
 Curtis, K.A., Calambokidis, J., Audley, K., Becker, E.A., Bejder, L., Black, N., Carretta, J.V., Cabanilles, P., Castaneda, M.G., Cheeseman, T., Currie, J.J., de Luna, E., De Weerdt, J., Doe, N., Doniol-Valcroze, T., Flynn, K., Forney, K.A., Frisch-Jordán, A., Fry, S., Gabriele, C., Gisborne, B., Huggins, J.L., Lyman, E., Martínez-Loustalot, P., McMillan, C.J., Pack, A.A., Quintana-Rizzo, E., Ransome, N., Shaw, T.J.H., Szabo, A., Torres, L., Urbán R., J., van Aswegen, M., Wray, J., Moore, J. 2025. Harnessing the power of photo-ID data for apportionment to migratory whale herds: U.S. West Coast humpback whale stock composition by latitude for the period 2019-2024, U.S. Department of Commerce, NOAA Technical Memorandum NMFS-SWFSC-XXX.
 
-(2) The package itself, subbing in the version you are using:
+You can also cite the package:
 
-Curtis, K.A. 2025. ApportionMnStocks. R package version 1.0.0. 
-https://github.com/kacurtis/ApportionMnStocks
+Curtis, K.A. (", year, ") ApportionMnStocks. Version ", meta$Version, ". NOAA Fisheries, Southwest Fisheries Science Center, 8901 La Jolla Shores Dr., La Jolla, CA 92037, DOI: 10.5281/zenodo.XXXXXXX
 
 ## Additional information
 
