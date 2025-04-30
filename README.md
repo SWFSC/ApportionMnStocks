@@ -1,5 +1,5 @@
 # ApportionMnStocks
-ApportionMnStocks is an R package that allows users to obtain estimates of 
+`ApportionMnStocks` is an R package that allows users to obtain estimates of 
 humpback whale stock membership probabilities along the U.S. West Coast, based 
 on a latitude (range) and season (summer or year-round), for humpback whale stocks
 as designated under the U.S. Marine Mammal Protection Act, and using 
@@ -29,7 +29,7 @@ https://github.com/kacurtis/ApportionMnStocks
 
 Code used in estimating stock proportions and for summarizing relative humpback 
 whale abundance by latitude along the U.S. West Coast and for the Salish Sea
-is [here](https://github.com/kacurtis/MnPhotoIDStockProportions2025) and 
+is [here](https://github.com/kacurtis/Mn-StockProportions-USWC-2025) and 
 [here](https://github.com/kacurtis/ApportionMnStocks/blob/main/inst/extdata/summarize.density.r).
 
 ## Disclaimer
