@@ -25,6 +25,8 @@ Curtis, K.A., Calambokidis, J., Audley, K., Becker, E.A., Bejder, L., Black, N.,
 Curtis, K.A. 2025. ApportionMnStocks. R package version 1.0.0. 
 https://github.com/kacurtis/ApportionMnStocks
 
+## Additional information
+
 Code used in estimating stock proportions and for summarizing relative humpback 
 whale abundance by latitude along the U.S. West Coast and for the Salish Sea
 is [here](https://github.com/kacurtis/MnPhotoIDStockProportions2025) and 
