@@ -4,7 +4,7 @@
 \alias{get_mnstockprops}
 \title{Get probabilities of stock membership for humpback whales}
 \usage{
-get_mnstockprops(x, props.ind = FALSE)
+get_mnstockprops(x, props.ind = FALSE, return.distr = FALSE)
 }
 \arguments{
 \item{x}{Data frame containing four columns and one row per whale:
@@ -16,29 +16,39 @@ latitudes to 0.1 degrees precision.}
 
 \item{props.ind}{Logical value indicating whether to return probabilities for
 for individual whales or for the total number of whales (must be \code{FALSE}
-to get appropriate uncertainties for the total). Defaults to \code{FALSE}.}
+to get appropriate uncertainties for the total).}
+
+\item{return.distr}{Logical value indicating whether to return full probability
+distribution (2000 samples) for each estimated proportion (\code{TRUE}) or
+only summary statistics (\code{FALSE}).}
 }
 \value{
 A data frame with the following columns:
-\item{id}{Included only if \code{props.ind = TRUE}: Sequential integers
+\item{id}{Only included if \code{props.ind = TRUE}: Sequential integers
 corresponding to each input row (i.e., each whale).}
-\item{minlat}{Included only if \code{props.ind = TRUE}.}
-\item{maxlat}{Included only if \code{props.ind = TRUE}.}
-\item{ssn}{Included only if \code{props.ind = TRUE}.}
-\item{sipv}{Included only if \code{props.ind = TRUE}.}
+\item{minlat}{Only included if \code{props.ind = TRUE}.}
+\item{maxlat}{Only included if \code{props.ind = TRUE}.}
+\item{ssn}{Only included if \code{props.ind = TRUE}.}
+\item{sipv}{Only included if \code{props.ind = TRUE}.}
+\item{sim}{Simulation number. Only included if \code{return.distr = TRUE}.}
 \item{stock}{Stock (using abbreviations provided in Details).}
-\item{prop}{Mean proportion.}
-\item{sd}{Standard deviation of proportion from simulation.}
-\item{q95l}{2.5th percentile of proportion from simulation.}
-\item{q80l}{10th percentile of proportion from simulation.}
-\item{q80u}{90th percentile of proportion from simulation.}
-\item{q95u}{97.5th percentile of proportion from simulation.}
+\item{prop}{(Mean) proportion.}
+\item{sd}{Standard deviation of proportion from simulation. Only included if
+\code{return.distr = FALSE}.}
+\item{q95l}{2.5th percentile of proportion from simulation. Only included if
+\code{return.distr = FALSE}.}
+\item{q80l}{10th percentile of proportion from simulation. Only included if
+\code{return.distr = FALSE}.}
+\item{q80u}{90th percentile of proportion from simulation. Only included if
+\code{return.distr = FALSE}.}
+\item{q95u}{97.5th percentile of proportion from simulation. Only included if
+\code{return.distr = FALSE}.}
 }
 \description{
 \code{get_mnstockprops} provides probabilities of membership in each of four
-humpback whale stocks, and associated uncertainties, given minimum and maximum
-latitude(s) along the U.S. West Coast for individual whales. It can
-provide probabilities for individual whales or averaged across whales.
+humpback whale stocks, given minimum and maximum latitude(s) along the U.S.
+West Coast for individual whales. It can provide probabilities for individual
+whales or averaged across whales.
 }
 \details{
 \code{get_mnstockprops} provides expected probabilities of stock membership
