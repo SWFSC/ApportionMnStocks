@@ -1,9 +1,17 @@
-Notes on CCE final 2018 average density files for Becker et al. (2020)
+Metadata for data files from Becker et al. (2020)
 
 Elizabeth A. Becker, Karin A. Forney, David L. Miller, Paul C. Fiedler, Jay Barlow, and Jeff E. Moore. 2020. Habitat-based density estimates for cetaceans in the California Current Ecosystem based on 1991-2018 survey data, U.S. Department of Commerce, NOAA Technical Memorandum NMFS-SWFSC-638
 
-Notes (for details refer to the Becker et al. 2020 Tech Memo #638)
+One CSV file from Becker et al (2020), provided by Elizabeth Becker, is included 
+in this directory:
+
+(1) Becker_etal_2020_CCE_SDMs_Mn_AvgDens_CVs_1996_2018_set2018.csv
+
+Elizabeth Becker provided the following notes.
+
+Notes on CCE final 2018 average density files (for details refer to Becker et al. 2020)
 • The .csv files have columns for latitude, longitude, area (km^2), average 2018 density (1/km^2; species-specific with column names reflective of ID letters below), and CV.  The lat/lons represent the midpoint of the ~ 10km x 10 km pixel resolution used for grid predictions.
 • SDMs were built with SWFSC 1991-2018 survey data. To generate multi-year average density surfaces, predictions were made on daily grids encompassing the 1996-2018 surveys (late June – early December), but with year set to 2018 to eliminate the 
 abundance trend. Models thus provide "multi-year average density surfaces" at 2018 densities, representative of the summer/fall period.
 • Uncertainty (expressed as CVs) accounts for environmental variability during the 2018 survey period.
+

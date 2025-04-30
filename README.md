@@ -7,8 +7,10 @@ photo-identification data from 2019 to 2024.
 
 ## Installation
 
+``` r
 # install.packages("devtools")
 devtools::install_github("kacurtis/ApportionMnStocks")
+```
 
 ## Citation
 
