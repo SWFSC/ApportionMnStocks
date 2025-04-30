@@ -20,7 +20,7 @@ Curtis, K.A., Calambokidis, J., Audley, K., Becker, E.A., Bejder, L., Black, N.,
 
 You can also cite the package:
 
-Curtis, K.A. (", year, ") ApportionMnStocks. Version ", meta$Version, ". NOAA Fisheries, Southwest Fisheries Science Center, 8901 La Jolla Shores Dr., La Jolla, CA 92037, DOI: 10.5281/zenodo.XXXXXXX
+Curtis, K.A. (2025) ApportionMnStocks. Version 1.0.0. NOAA Fisheries, Southwest Fisheries Science Center, 8901 La Jolla Shores Dr., La Jolla, CA 92037, DOI: 10.5281/zenodo.XXXXXXX
 
 ## Additional information
 
