@@ -1,4 +1,13 @@
 # ApportionMnStocks
+
+<!-- badges: start -->
+[![GitHub release (latest by
+date)](https://img.shields.io/github/v/release/kacurtis/ApportionMnStocks)](https://github.com/kacurtis/ApportionMnStocks/releases)
+[![DOI](https://zenodo.org/badge/917388925.svg)](https://zenodo.org/badge/latestdoi/917388925)
+<!-- badges: end -->
+
+## Description
+
 `ApportionMnStocks` is an R package that allows users to obtain estimates of 
 humpback whale stock membership probabilities along the U.S. West Coast, based 
 on a latitude (range) and season (summer or year-round), for humpback whale stocks
@@ -14,9 +23,9 @@ devtools::install_github("kacurtis/ApportionMnStocks")
 
 ## Citation
 
-Please cite the primary citation (available [here](https://xxxx)) when using this package:
+Please cite the primary citation when using this package:
 
-Curtis, K.A., Calambokidis, J., Audley, K., Becker, E.A., Bejder, L., Black, N., Carretta, J.V., Cabanilles, P., Castaneda, M.G., Cheeseman, T., Currie, J.J., de Luna, E., De Weerdt, J., Doe, N., Doniol-Valcroze, T., Flynn, K., Forney, K.A., Frisch-Jordán, A., Fry, S., Gabriele, C., Gisborne, B., Huggins, J.L., Lyman, E., Martínez-Loustalot, P., McMillan, C.J., Pack, A.A., Quintana-Rizzo, E., Ransome, N., Shaw, T.J.H., Szabo, A., Torres, L., Urbán R., J., van Aswegen, M., Wray, J., Moore, J. 2025. Harnessing the power of photo-ID data for apportionment to migratory whale herds: U.S. West Coast humpback whale stock proportions by latitude for the period 2019-2024, U.S. Department of Commerce, NOAA Technical Memorandum NMFS-SWFSC-XXX.
+Curtis, K.A., Calambokidis, J., Audley, K., Becker, E.A., Bejder, L., Black, N., Carretta, J.V., Cabanilles, P., Castaneda, M.G., Cheeseman, T., Currie, J.J., de Luna, E., De Weerdt, J., Doe, N., Doniol-Valcroze, T., Flynn, K., Forney, K.A., Frisch-Jordán, A., Fry, S., Gabriele, C., Gisborne, B., Huggins, J.L., Lyman, E., Martínez-Loustalot, P., McMillan, C.J., Pack, A.A., Quintana-Rizzo, E., Ransome, N., Shaw, T.J.H., Szabo, A., Torres, L., Urbán R., J., van Aswegen, M., Wray, J., Moore, J. 2025. Harnessing the power of photo-ID data for apportionment to migratory whale herds: U.S. West Coast humpback whale stock proportions by latitude for the period 2019-2024, U.S. Department of Commerce, NOAA Technical Memorandum NMFS-SWFSC-723. https://doi.org/10.25923/ah7d-sj35
 
 You can also cite the package:
 

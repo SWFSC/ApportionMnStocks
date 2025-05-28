@@ -100,14 +100,14 @@ get_mnstockprops(whale.locs, props.ind = TRUE)
 }
 \references{
 Becker, E.A., Forney, K.A., Miller, D.L., Fiedler, P.C., Barlow, J., Moore,
-J.E.. 2020. Habitat-based density estimates for cetaceans in the California
+J.E. 2020. Habitat-based density estimates for cetaceans in the California
 Current Ecosystem based on 1991-2018 survey data. NOAA Technical Memorandum
 NMFS-SWFSC-638.
 
-Curtis, K. A., Calambokidis, J., and others (2025) Harnessing the power of
+Curtis, K. A., Calambokidis, J., and others. 2025. Harnessing the power of
 photo-ID data for apportionment to migratory whale herds: U.S. West Coast
 humpback whale stock proportions by latitude for the period 2019-2024. NOAA
-Technical Memorandum NMFS-SWFSC-XXX.
+Technical Memorandum NMFS-SWFSC-723.
 
 Wright, B. M., Nichol, L. M., Doniol-Valcroze, T. 2021. Spatial density models
 of cetaceans in the Canadian Pacific estimated from 2018 ship-based surveys.

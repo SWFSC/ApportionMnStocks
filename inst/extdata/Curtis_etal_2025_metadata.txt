@@ -1,14 +1,6 @@
 Metadata for data files from Curtis et al. (2025)
 
-Curtis, K.A., Calambokidis, J., Audley, K., Becker, E.A., Bejder, L., Black, N., 
-Carretta, J.V., Cabanilles, P., Castaneda, M.G., Cheeseman, T., Currie, J.J., 
-de Luna, E., De Weerdt, J., Doe, N., Doniol-Valcroze, T., Flynn, K., Forney, K.A., 
-Frisch-Jordán, A., Fry, S., Gabriele, C., Gisborne, B., Huggins, J.L., Lyman, E., 
-Martínez-Loustalot, P., McMillan, C.J., Pack, A.A., Quintana-Rizzo, E., Ransome, N., 
-Shaw, T.J.H., Szabo, A., Torres, L., Urbán R., J., van Aswegen, M., Wray, J., Moore, J. 
-2025. Harnessing the power of photo-ID data for apportionment to migratory whale herds: 
-U.S. West Coast humpback whale stock proportions by latitude for the period 2019-2024, 
-U.S. Department of Commerce, NOAA Technical Memorandum NMFS-SWFSC-XXX.
+Curtis, K. Alexandra, John Calambokidis, Katherina Audley, Elizabeth A. Becker, Lars Bejder, Nancy Black, James V. Carretta, Paula Cabanilles, Melvin G. Castaneda, Ted Cheeseman, Jens J. Currie, Enrique de Luna, Joëlle De Weerdt, Nicole Doe, Thomas Doniol-Valcroze, Kiirsten Flynn, Karin A. Forney, Astrid Frisch-Jordán, Shauna Fry, Christine Gabriele, Brian Gisborne, Jessica L. Huggins, Edward Lyman, Pamela Martínez-Loustalot, Christie J. McMillan, Adam A. Pack, Ester Quintana-Rizzo, Nicola Ransome, Tasli J. H. Shaw, Andy Szabo, Leigh Torres, Jorge Urbán R., Martin van Aswegen, Janie Wray, Jeffrey Moore. 2025. Harnessing the power of photo-ID data for apportionment to migratory whale herds: U.S. West Coast humpback whale stock proportions by latitude for the period 2019-2024. U.S. Department of Commerce, NOAA Technical Memorandum NMFS-SWFSC-723. https://doi.org/10.25923/ah7d-sj35
 
 Two R data files from Curtis et al. (2025), accessed from 
 https://github.com/kacurtis/MnPhotoIDStockProportions2025, are included in this 
