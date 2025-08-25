@@ -2,17 +2,18 @@
 #'
 #' \code{get_mnstockprops} provides probabilities of membership in each of four
 #' humpback whale stocks, given minimum and maximum latitude(s) along the U.S. 
-#' West Coast for individual whales. It can provide probabilities for individual 
-#' whales or averaged across whales.
+#' West Coast. It can provide probabilities for individual whales or spatial 
+#' strata, or averaged across multiple whales or weighted strata.
 #'
 #' @param x Data frame containing four columns and one row per whale:
 #' minimum and maximum latitudes of occurrence (two numeric columns), season of
 #' occurrence (character, \code{"summer"} (Jun-Oct) or \code{"all"}) (all months),
-#' and a proration value from serious injury determination (number between zero
-#' and one; set to all ones if not relevant). Note that the function rounds all
-#' latitudes to 0.1 degrees precision.
+#' and an assigned weight (e.g., proration value from serious injury determination
+#' for an individual whale, or relative interaction risk in a stratum; 
+#' set to all ones if not relevant). Note that the function rounds all latitudes to 
+#' 0.1 degrees precision.
 #' @param props.ind Logical value indicating whether to return probabilities for
-#' for individual whales or for the total number of whales (must be \code{FALSE}
+#' individual whales or for the total number of whales (must be \code{FALSE}
 #' to get appropriate uncertainties for the total).
 #' @param return.distr Logical value indicating whether to return full probability
 #' distribution (2000 samples) for each estimated proportion (\code{TRUE}) or 
@@ -23,10 +24,10 @@
 #' of humpback whales off the U.S. West Coast (as delineated under the U.S. MMPA),
 #' given a range of potential latitudes. Probabilities can be returned at either
 #' the individual level (for each set of minimum and maximum latitudes provided)
-#' or as an overall average that can be applied to the total number of whales.
-#' Uncertainty is derived from Monte Carlo simulations, so uncertainty for mean
-#' probabilities across whales cannot be calculated post hoc from statistics for
-#' individuals.
+#' or as an overall average that can be applied to the total number of whales (or
+#' across all strata provided). Uncertainty is derived from Monte Carlo simulations, 
+#' so uncertainty for mean probabilities across whales cannot be calculated post 
+#' hoc from statistics for individuals.
 #'
 #' Estimated proportions are provided for four stocks (with abbreviations used in
 #' the returned data frame):
@@ -77,10 +78,10 @@
 #' @returns A data frame with the following columns:
 #'   \item{id}{Only included if \code{props.ind = TRUE}: Sequential integers
 #'             corresponding to each input row (i.e., each whale).}
-#'   \item{minlat}{Only included if \code{props.ind = TRUE}.}
-#'   \item{maxlat}{Only included if \code{props.ind = TRUE}.}
-#'   \item{ssn}{Only included if \code{props.ind = TRUE}.}
-#'   \item{sipv}{Only included if \code{props.ind = TRUE}.}
+#'   \item{minlat}{From input data; only included if \code{props.ind = TRUE}.}
+#'   \item{maxlat}{From input data; only included if \code{props.ind = TRUE}.}
+#'   \item{ssn}{From input data; only included if \code{props.ind = TRUE}.}
+#'   \item{w}{From input data; only included if \code{props.ind = TRUE}.}
 #'   \item{sim}{Simulation number. Only included if \code{return.distr = TRUE}.}
 #'   \item{stock}{Stock (using abbreviations provided in Details).}
 #'   \item{prop}{(Mean) proportion.}
@@ -97,7 +98,7 @@
 #'
 #' @examples
 #' whale.locs <- data.frame(minlat = c(34.5, 46), maxlat = c(40, 48.5),
-#'                          ssn = c("all", "all"), sipv = c(1, 1))
+#'                          ssn = c("all", "all"), w = c(1, 1))
 #' get_mnstockprops(whale.locs)
 #' get_mnstockprops(whale.locs, props.ind = TRUE)
 #'
@@ -119,7 +120,7 @@ get_mnstockprops <- function(x, props.ind=FALSE, return.distr=FALSE) {
     stop("No missing values allowed in x.")
   if (!is.numeric(unlist(x[,c(1:2,4)])) | !is.character(unlist(x[,3])))
     stop(paste0("Columns for x must be as follows: minimum and maximum possible ",
-         "latitudes of occurrence, season, and proration values. See ",
+         "latitudes of occurrence, season, and assigned weights. See ",
          "?get_mnstockprops for more information."))
   lats <- unlist(x[,1:2])
   if (!all((lats>=30.5) & (lats<=49) & (lats<=48.5 | lats==49)))
@@ -130,11 +131,13 @@ get_mnstockprops <- function(x, props.ind=FALSE, return.distr=FALSE) {
          "latitude (column 2)."))
   if (!all(x[,3] %in% c("summer", "all")))
     stop("Season must be 'all' or 'summer'.")
-  if (!all(x[,4] >= 0 & x[,4] <= 1))
-    stop("Proration values must be a number between zero and one.")
+  if (!all(x[,4] >= 0))
+    stop("Assigned weights must be greater or equal to zero.")
+  if (!all(x[,4] <= 1))
+    warning("User-provided data include weight(s) greater than one.")
 
   # edit data frame
-  names(x) <- c("minlat", "maxlat", "ssn", "sipv")
+  names(x) <- c("minlat", "maxlat", "ssn", "w")
   x$id <- 1:nrow(x)
   x$minlat <- round(x$minlat, 1)
   x$maxlat <- round(x$maxlat, 1)
@@ -148,7 +151,7 @@ get_mnstockprops <- function(x, props.ind=FALSE, return.distr=FALSE) {
                               minlat=rep(x$minlat, each=nstock*nsim),
                               maxlat=rep(x$maxlat, each=nstock*nsim),
                               ssn=rep(x$ssn, each=nstock*nsim),
-                              sipv=rep(x$sipv, each=nstock*nsim),
+                              w=rep(x$w, each=nstock*nsim),
                               stock=rep(NA, ni*nstock*nsim),
                               sim=rep(NA, ni*nstock*nsim),
                               prop=rep(NA, ni*nstock*nsim))
@@ -156,7 +159,7 @@ get_mnstockprops <- function(x, props.ind=FALSE, return.distr=FALSE) {
                            minlat=rep(x$minlat, each=nstock),
                            maxlat=rep(x$maxlat, each=nstock),
                            ssn=rep(x$ssn, each=nstock),
-                           sipv=rep(x$sipv, each=nstock),
+                           w=rep(x$w, each=nstock),
                            stock=rep(NA, ni*nstock),
                            prop=rep(NA, ni*nstock))
   for (i in 1:ni) {
@@ -171,7 +174,7 @@ get_mnstockprops <- function(x, props.ind=FALSE, return.distr=FALSE) {
   # summarize props by stock across sims by whale or across whales
   if(props.ind) {
     # return full distribution per whale if requested
-    if(return.distr) return(propdist.each[,c("id","minlat","maxlat","ssn","sipv","sim","stock","prop")])
+    if(return.distr) return(propdist.each[,c("id","minlat","maxlat","ssn","w","sim","stock","prop")])
     # summarize props by whale and stock across sims, merge with point estim, and return
     propstats.each <- stats::aggregate(prop ~ id + stock, data=propdist.each,
                                 FUN = function(x) c(stats::sd(x), stats::quantile(x, c(0.025,0.1,0.9,0.975))))
@@ -185,19 +188,19 @@ get_mnstockprops <- function(x, props.ind=FALSE, return.distr=FALSE) {
     return(propstats.each[,c(names(propx.each),"sd","q95l","q80l","q80u","q95u")])
   } else {
     # objective is to return four-row df with stockwise stats for all whales combined,
-    # (accounting for sipv)
-    ## calculate weighted (by sipv) average of props across whales for point estim
-    propx.each$prop.wtd <- propx.each$sipv * propx.each$prop
-    propx.sum <- stats::aggregate(cbind(sipv, prop.wtd) ~ stock, data=propx.each, FUN=sum)
-    propx.sum$prop <- propx.sum$prop.wtd/propx.sum$sipv
-    ## calculate weighted (by sipv) average of props across whales within sim
-    propdist.each$prop.wtd <- propdist.each$sipv * propdist.each$prop
-    propdist.sum <- stats::aggregate(cbind(sipv, prop.wtd) ~ stock + sim,
+    # (accounting for w)
+    ## calculate weighted (by w) average of props across whales for point estim
+    propx.each$prop.wtd <- propx.each$w * propx.each$prop
+    propx.sum <- stats::aggregate(cbind(w, prop.wtd) ~ stock, data=propx.each, FUN=sum)
+    propx.sum$prop <- propx.sum$prop.wtd/propx.sum$w
+    ## calculate weighted (by w) average of props across whales within sim
+    propdist.each$prop.wtd <- propdist.each$w * propdist.each$prop
+    propdist.sum <- stats::aggregate(cbind(w, prop.wtd) ~ stock + sim,
                                      data=propdist.each, FUN=sum)
-    propdist.sum$propsum.std <- propdist.sum$prop.wtd/propdist.sum$sipv
+    propdist.sum$propsum.std <- propdist.sum$prop.wtd/propdist.sum$w
     ## return full distribution for summed whales if requested
     if(return.distr) {
-      names(propdist.sum) <- c("stock","sim","sipv","prop.wtd","prop")
+      names(propdist.sum) <- c("stock","sim","w","prop.wtd","prop")
       
       return(propdist.sum[,c("sim","stock","prop")])
     }

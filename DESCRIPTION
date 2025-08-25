@@ -1,16 +1,17 @@
 Package: ApportionMnStocks
-Version: 1.0.0
-Date: 2025-04-29
+Version: 1.0.1
+Date: 2025-08-25
 Title: Stock apportionment for U.S. West Coast Humpbacks
 Author: K. Alexandra Curtis [aut, cre]
 Maintainer: K. Alexandra Curtis <alex.curtis@noaa.gov>
 Description: A tool that provides stock membership probabilities for humpback 
-   whales off the U.S. West Coast, individually or as an aggregate, given individual 
-   ranges of latitudes and seasons of (potential) occurrence, and serious injury 
-   proration values. Stock membership probabilities are based on photo-identification 
-   data for 2019 to 2024, and are taken from Curtis et al. (2025). Weighted 
-   averages across latitude bins are calculated using humpback densities from 
-   Becker et al. (2020) and Wright et al. (2021). 
+   whales off the U.S. West Coast, by individual whale (stratum) or as an aggregate, 
+   given individual ranges of latitudes and seasons of (potential) occurrence, and 
+   assigned weights (e.g., serious injury proration values of individual whales, or 
+   relative interaction risk in a stratum). Stock membership probabilities are 
+   based on photo-identification data for 2019 to 2024, and are taken from Curtis 
+   et al. (2025). Weighted averages across latitude bins are calculated using 
+   humpback densities from Becker et al. (2020) and Wright et al. (2021). 
 License: Apache License (>= 2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

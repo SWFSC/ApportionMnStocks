@@ -10,12 +10,13 @@ get_mnstockprops(x, props.ind = FALSE, return.distr = FALSE)
 \item{x}{Data frame containing four columns and one row per whale:
 minimum and maximum latitudes of occurrence (two numeric columns), season of
 occurrence (character, \code{"summer"} (Jun-Oct) or \code{"all"}) (all months),
-and a proration value from serious injury determination (number between zero
-and one; set to all ones if not relevant). Note that the function rounds all
-latitudes to 0.1 degrees precision.}
+and an assigned weight (e.g., proration value from serious injury determination
+for an individual whale, or relative interaction risk in a stratum;
+set to all ones if not relevant). Note that the function rounds all latitudes to
+0.1 degrees precision.}
 
 \item{props.ind}{Logical value indicating whether to return probabilities for
-for individual whales or for the total number of whales (must be \code{FALSE}
+individual whales or for the total number of whales (must be \code{FALSE}
 to get appropriate uncertainties for the total).}
 
 \item{return.distr}{Logical value indicating whether to return full probability
@@ -26,10 +27,10 @@ only summary statistics (\code{FALSE}).}
 A data frame with the following columns:
 \item{id}{Only included if \code{props.ind = TRUE}: Sequential integers
 corresponding to each input row (i.e., each whale).}
-\item{minlat}{Only included if \code{props.ind = TRUE}.}
-\item{maxlat}{Only included if \code{props.ind = TRUE}.}
-\item{ssn}{Only included if \code{props.ind = TRUE}.}
-\item{sipv}{Only included if \code{props.ind = TRUE}.}
+\item{minlat}{From input data; only included if \code{props.ind = TRUE}.}
+\item{maxlat}{From input data; only included if \code{props.ind = TRUE}.}
+\item{ssn}{From input data; only included if \code{props.ind = TRUE}.}
+\item{w}{From input data; only included if \code{props.ind = TRUE}.}
 \item{sim}{Simulation number. Only included if \code{return.distr = TRUE}.}
 \item{stock}{Stock (using abbreviations provided in Details).}
 \item{prop}{(Mean) proportion.}
@@ -47,18 +48,18 @@ corresponding to each input row (i.e., each whale).}
 \description{
 \code{get_mnstockprops} provides probabilities of membership in each of four
 humpback whale stocks, given minimum and maximum latitude(s) along the U.S.
-West Coast for individual whales. It can provide probabilities for individual
-whales or averaged across whales.
+West Coast. It can provide probabilities for individual whales or spatial
+strata, or averaged across multiple whales or weighted strata.
 }
 \details{
 \code{get_mnstockprops} provides expected probabilities of stock membership
 of humpback whales off the U.S. West Coast (as delineated under the U.S. MMPA),
 given a range of potential latitudes. Probabilities can be returned at either
 the individual level (for each set of minimum and maximum latitudes provided)
-or as an overall average that can be applied to the total number of whales.
-Uncertainty is derived from Monte Carlo simulations, so uncertainty for mean
-probabilities across whales cannot be calculated post hoc from statistics for
-individuals.
+or as an overall average that can be applied to the total number of whales (or
+across all strata provided). Uncertainty is derived from Monte Carlo simulations,
+so uncertainty for mean probabilities across whales cannot be calculated post
+hoc from statistics for individuals.
 
 Estimated proportions are provided for four stocks (with abbreviations used in
 the returned data frame):
@@ -93,7 +94,7 @@ warnings or error messages: \code{lxi}, \code{lxi.mc}, and \code{mn.n.line}.
 }
 \examples{
 whale.locs <- data.frame(minlat = c(34.5, 46), maxlat = c(40, 48.5),
-                         ssn = c("all", "all"), sipv = c(1, 1))
+                         ssn = c("all", "all"), w = c(1, 1))
 get_mnstockprops(whale.locs)
 get_mnstockprops(whale.locs, props.ind = TRUE)
 
